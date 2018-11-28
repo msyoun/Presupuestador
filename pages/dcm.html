@@ -1,0 +1,199 @@
+<form class="ventana">
+
+  <div>
+    <select on="LimitarOpcion(this)" onchange="LimitarOpcion(this)">
+      <optgroup label="Corrediza">
+        <option value="0">115</option>
+        <option value="1">115S</option>
+        <option value="2">120B</option>
+        <option value="3">140B</option>
+      </optgroup>
+      <optgroup label="Sistema">
+        <option value="4">60</option>
+        <option value="5">70</option>
+      </optgroup>
+    </select>
+    <a onclick="DeshacerVentana(this)">Deshacer ventana</a>
+  </div>
+
+  <div>
+    <input type="number" placeholder="Ancho">
+    <span>X</span>
+    <input type="number" placeholder="Alto">
+  </div>
+
+  <div>
+    <select>
+      <option value="0">Sin vidrio</option>
+      <optgroup label="Común">
+        <option value="1">4mm</option>
+        <option value="2">5mm</option>
+        <option value="3">6mm</option>
+        <option value="4">8mm</option>
+        <option value="5">10mm</option>
+      </optgroup>
+      <optgroup label="Laminado">
+        <option value="6">3+3</option>
+        <option value="7">4+4</option>
+        <option value="8">5+5</option>
+      </optgroup>
+      <optgroup label="Especiales">
+        <option value="9">4mm FAN</option>
+        <option value="10">4mm ESM</option>
+        <option value="11">6mm ESM</option>
+        <option value="12">3+3 ESM</option>
+        <option value="13">4mm STOP</option>
+        <option value="14">6mm STOP</option>
+        <option value="15">4mm COL</option>
+        <option value="16">5mm COL</option>
+        <option value="17">6mm COL</option>
+      </optgroup>
+    </select>
+
+    <select>
+      <option value="0">Sin cámara</option>
+      <option value="1">6mm</option>
+      <option value="2">9mm</option>
+      <option value="3">12mm</option>
+      <option value="4">15mm</option>
+      <option value="5">19.5mm</option>
+      <option value="6">23.5mm</option>
+    </select>
+
+    <select>
+      <option value="0">Sin vidrio</option>
+      <optgroup label="Común">
+        <option value="1">4mm</option>
+        <option value="2">5mm</option>
+        <option value="3">6mm</option>
+        <option value="4">8mm</option>
+        <option value="5">10mm</option>
+      </optgroup>
+      <optgroup label="Laminado">
+        <option value="6">3+3</option>
+        <option value="7">4+4</option>
+        <option value="8">5+5</option>
+      </optgroup>
+      <optgroup label="Especiales">
+        <option value="9">4mm FAN</option>
+        <option value="10">4mm ESM</option>
+        <option value="11">6mm ESM</option>
+        <option value="12">3+3 ESM</option>
+        <option value="13">4mm STOP</option>
+        <option value="14">6mm STOP</option>
+        <option value="15">4mm COL</option>
+        <option value="16">5mm COL</option>
+        <option value="17">6mm COL</option>
+      </optgroup>
+    </select>
+
+    <select>
+      <option value="0">Sin cámara</option>
+      <option value="1">6mm</option>
+      <option value="2">9mm</option>
+      <option value="3">12mm</option>
+      <option value="4">15mm</option>
+      <option value="5">19.5mm</option>
+      <option value="6">23.5mm</option>
+    </select>
+
+    <select>
+      <option value="0">Sin vidrio</option>
+      <optgroup label="Común">
+        <option value="1">4mm</option>
+        <option value="2">5mm</option>
+        <option value="3">6mm</option>
+        <option value="4">8mm</option>
+        <option value="5">10mm</option>
+      </optgroup>
+      <optgroup label="Laminado">
+        <option value="6">3+3</option>
+        <option value="7">4+4</option>
+        <option value="8">5+5</option>
+      </optgroup>
+      <optgroup label="Especiales">
+        <option value="9">4mm FAN</option>
+        <option value="10">4mm ESM</option>
+        <option value="11">6mm ESM</option>
+        <option value="12">3+3 ESM</option>
+        <option value="13">4mm STOP</option>
+        <option value="14">6mm STOP</option>
+        <option value="15">4mm COL</option>
+        <option value="16">5mm COL</option>
+        <option value="17">6mm COL</option>
+      </optgroup>
+    </select>
+  </div>
+
+  <div>
+    <select>
+      <optgroup label="Corrediza">
+        <option value="0">Central</option>
+        <option value="1">Manual</option>
+        <option value="2">Automático</option>
+      </optgroup>
+      <optgroup label="Sistema">
+        <option value="3">Oscilobatiente</option>
+        <option value="4">Banderola</option>
+        <option value="5">Practicable</option>
+        <option value="6">Proyectante</option>
+        <option value="7">Osciloparalela</option>
+      </optgroup>
+    </select>
+  </div>
+
+  <div>
+    <input type="number" placeholder="cantidad">
+    <input type="text" placeholder="Algún detalle">
+  </div>
+
+  <div>
+    <input type="checkbox" onchange="MasOpciones(this)"><span>Más opciones</span>
+  </div>
+
+  <div class="hidden">
+
+    <div>
+      <input type="number" placeholder="Partición">
+      <input type="number" placeholder="Partición">
+      <input type="number" placeholder="Partición">
+      <input type="number" placeholder="Partición">
+    </div>
+
+    <div>
+      <select>
+        <option value="0">Desactivo</option>
+        <option value="1" selected="selected">Activo</option>
+        <option value="2">Pasivo</option>
+        <option value="3">Fijo</option>
+      </select>
+
+      <select>
+        <option value="0">Desactivo</option>
+        <option value="1">Activo</option>
+        <option value="2" selected="selected">Pasivo</option>
+        <option value="3">Fijo</option>
+      </select>
+
+      <select>
+        <option value="0">Desactivo</option>
+        <option value="1">Activo</option>
+        <option value="2">Pasivo</option>
+        <option value="3">Fijo</option>
+      </select>
+
+      <select>
+        <option value="0">Desactivo</option>
+        <option value="1">Activo</option>
+        <option value="2">Pasivo</option>
+        <option value="3">Fijo</option>
+      </select>
+    </div>
+
+    <div>
+      <input type="checkbox"><span>Invertir ancho y alto</span>
+    </div>
+
+  </div>
+
+</form>
