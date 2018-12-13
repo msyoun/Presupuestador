@@ -95,8 +95,19 @@
                 datos_ventana[i].s4 = select[10].value;
                 datos_ventana[i].i = input[9].checked;
               }
-              console.log(datos_ventana[i]);
             }
+            console.log(datos_ventana);
+            $.ajax({
+              url: 'procesador.php',
+              type: 'GET',
+              data: {'ventana': datos_ventana}
+            })
+            .done(function(response) {
+              console.log(response);
+            })
+            .fail(function(jqXHR, textStatus) {
+              console.log(textStatus);
+            });
           }
         }
     </script>
