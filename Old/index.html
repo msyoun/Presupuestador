@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Presupuesto</title>
+    <!-- Style temporal para visualización básica -->
+    <style media="screen">
+      * {
+        font-family: 'Open Sans', sans-serif;
+      }
+      .button {
+        cursor: pointer;
+      }
+      div {
+        margin: 15px 0;
+      }
+      .OptBlock {
+        display: block;
+      }
+      .hidden {
+        display: none;
+      }
+      a {
+        cursor: pointer;
+        color: #0070c9;
+        font-size: 10pt;
+      }
+      .ventana {
+        border: 1px solid;
+        padding: 5px;
+      }
+
+    </style>
+
+    <script type="text/javascript">
+      function MasOpciones(mo) {
+        if (mo.checked === true) {
+          $(mo).parent().parent().children('div:nth-child(7)').removeClass();
+        } else {
+          $(mo).parent().parent().children('div:nth-child(7)').addClass('hidden');
+        }
+      }
+      function AgregarVentana() {
+        $("#at").append("<div></div>");
+        $("#at").children('div:last-child').load('pages/dcm.html');
+      }
+      function DeshacerVentana(dv) {
+        if (confirm("Desea deshacer esta ventana?")) {
+          $(dv).parent().parent().parent().remove();
+        }
+      }
+      function LimitarOpcion(lo) {
+          var valor = $(lo).val();
+          var optgroupSistema = $(lo).parent().parent().children('div:nth-child(4)').children('select').children('optgroup[label="Sistema"]');
+          var optgroupCorrediza = $(lo).parent().parent().children('div:nth-child(4)').children('select').children('optgroup[label="Corrediza"]');
+          if (valor != 4 && valor != 5) {
+            optgroupSistema.attr('disabled', 'disabled');
+            optgroupCorrediza.removeAttr('disabled');
+          } else {
+            optgroupCorrediza.attr('disabled', 'disabled');
+            optgroupSistema.removeAttr('disabled');
+          }
+        }
+        function GenerarPresu() {
+          if (confirm("Desea generar el presupuesto?")) {
+            var crawl = $('.ventana');
+            var datos_ventana = [];
+            for (var i = 0; i < crawl.length; i++) {
+              var select = $(crawl[i]).find('select');
+              var input = $(crawl[i]).find('input');
+              datos_ventana[i] = {
+                "linea": select[0].value,
+                "ancho": input[0].value,
+                "alto": input[1].value,
+                "v1": select[1].value,
+                "c1": select[2].value,
+                "v2": select[3].value,
+                "c2": select[4].value,
+                "v3": select[5].value,
+                "h": select[6].value,
+                "c": input[2].value,
+                "d": input[3].value
+              };
+              if (input[4].checked == true) {
+                datos_ventana[i].o = input[4].checked;
+                datos_ventana[i].p1 = input[5].value;
+                datos_ventana[i].p2 = input[6].value;
+                datos_ventana[i].p3 = input[7].value;
+                datos_ventana[i].p4 = input[8].value;
+                datos_ventana[i].s1 = select[7].value;
+                datos_ventana[i].s2 = select[8].value;
+                datos_ventana[i].s3 = select[9].value;
+                datos_ventana[i].s4 = select[10].value;
+                datos_ventana[i].i = input[9].checked;
+              }
+            }
+            console.log(datos_ventana);
+            $.ajax({
+              url: 'procesador.php',
+              type: 'GET',
+              data: {'ventana': datos_ventana}
+            })
+            .done(function(response) {
+              console.log(response);
+            })
+            .fail(function(jqXHR, textStatus) {
+              console.log(textStatus);
+            });
+          }
+        }
+    </script>
+
+  </head>
+  <body>
+    <div id="presupuestador">
+      <div id="title">
+        <h1>Presupuestador Aberstan</h1>
+        <span>Última modificación 2018-10-16</span>
+      </div>
+      <div class="buttons">
+        <div class="button" id="crear">
+          <span>Crear</span>
+        </div>
+        <div class="button" id="modificar">
+          <span>Modificar / Actualizar</span>
+        </div>
+        <div class="button" id="ver">
+          <span>Ver</span>
+        </div>
+      </div>
+      <div id="at">
+      </div>
+    </div>
+    <!-- divs relacionados con formulario de ingreso -->
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+
+        function VaciarArea() {
+          if ($("#at").children().length != 0) {
+            if (confirm("Se está usando su área de trabajo, ¿Desea realizar esta acción?")) {
+              $("#at").empty();
+              return true;
+            } else {
+              return false;
+            }
+          } else {
+            $("#at").empty();
+            return true;
+          }
+        }
+
+        //Agregar eventos a todos los botones iniciales
+        $("#crear").click(function(event) {
+          if (VaciarArea()) {
+            $("#at").append("<a onclick='AgregarVentana()'>Agregar mas ventanas</a>");
+            $("#at").append("<a onclick='GenerarPresu()'>Generar el presupuesto</a>");
+            AgregarVentana();
+          }
+        });
+        $("#modificar").click(function(event) {
+          VaciarArea();
+          $("#at").append(dcm);
+        });
+        $("#ver").click(function(event) {
+          VaciarArea();
+        });
+
+      });
+    </script>
+  </body>
+</html>
