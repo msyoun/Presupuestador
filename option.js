@@ -1,22 +1,24 @@
 const optionVentana = {
   'Slide' : {
-    'GroupMinHoja': 2,
-    'GroupHerraje': 'SlideShare',
     '115': {
       'MaxVid': 2,
       'MaxVidWidth': 22,
+      'herraje': ['SlideShare']
     },
     '115S': {
       'MaxVid': 2,
       'MaxVidWidth': 22,
+      'herraje': ['SlideShare']
     },
     '120B': {
       'MaxVid': 2,
       'MaxVidWidth': 22,
+      'herraje': ['SlideShare']
     },
     '140B': {
       'MaxVid': 2,
       'MaxVidWidth': 22,
+      'herraje': ['SlideShare']
     }
   },
   'Casement': {
@@ -24,12 +26,12 @@ const optionVentana = {
     '60': {
       'MaxVid': 2,
       'MaxVidWidth': 24,
-      'herrajeESP': ['60ESP']
+      'herraje': ['60ESP']
     }, {
     '70':
       'MaxVid': 3,
       'MaxVidWidth': 39,
-      'herrajeESP': ['70ESP']
+      'herraje': ['70ESP']
     }
   },
   'Fix': {
