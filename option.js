@@ -22,20 +22,30 @@ const optionVentana = {
     }
   },
   'Casement': {
-    'GroupMinHoja': 1,
     '60': {
       'MaxVid': 2,
       'MaxVidWidth': 24,
-      'herraje': ['60ESP']
-    }, {
-    '70':
+      'herraje': ['60ESP'],
+    },
+    '70': {
       'MaxVid': 3,
       'MaxVidWidth': 39,
-      'herraje': ['70ESP']
+      'herraje': ['70ESP'],
     }
   },
   'Fix': {
-
+    '115F': {
+      'MaxVid': 2,
+      'MaxVidWidth': 19
+    },
+    '60F': {
+      'MaxVid': 2,
+      'MaxVidWidth': 24
+    },
+    '70F': {
+      'MaxVid': 3,
+      'MaxVidWidth': 39
+    }
   }
 };
 
@@ -44,6 +54,9 @@ const optionHerraje = {
     'Central': ['YC-01'],
     'Manual': ['Hoppe', 'Roto-frank'],
     'Automático':['YLH-04']
+  },
+  'CasementShare': {
+    'Puerta':['Roto-frank']
   },
   '60ESP': {
     'Proyectante': ['YoungLim']
@@ -55,4 +68,10 @@ const optionHerraje = {
     'Proyectante': ['Roto-frank'],
     'Oscilo pararela': ['Roto-frank']
   }
+}
+
+const optionVidrio = {
+  'Común': ['4mm','5mm','6mm','8mm','10mm'],
+  'Laminado': ['3+3','4+4','5+5'],
+
 }
