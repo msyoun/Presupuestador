@@ -19,27 +19,31 @@ function AddWindow(workArea) {
 
   //Lineup select row
   $(form)
-    .append($(GenerateRow()).append($(CreateElement('div')).addClass('col')
-      .append($(CreateElement('label')).html('Línea:'))
-      .append($(CreateElement('select'))
-        .addClass('form-control')
-        .append(function() {
-          for (var group in optionVentana) {
-            var actualGroup = CreateElement('optgroup');
-            $(actualGroup).attr('label', group);
-            $(this).append(actualGroup);
-            for (var lines in optionVentana[group]) {
-              var actualSelect = CreateElement('option');
-              $(actualSelect).html(lines);
-              actualGroup.append(actualSelect);
+    .append($(GenerateRow())
+      .append($(CreateElement('div'))
+        .addClass('col') 
+        .append($(CreateElement('label'))
+          .html('Línea:'))
+        .append($(CreateElement('select'))
+          .attr('data-select', 'lineup')
+          .addClass('form-control')
+          .append(function() {
+            for (var group in optionVentana) {
+              var actualGroup = CreateElement('optgroup');
+              $(actualGroup).attr('label', group);
+              $(this).append(actualGroup);
+              for (var lines in optionVentana[group]) {
+                var actualSelect = CreateElement('option');
+                $(actualSelect).html(lines);
+                actualGroup.append(actualSelect);
+              }
             }
-          }
-        })
-      ))
-      .append($(CreateElement('div')).addClass('col')
-        .append($(CreateElement('label')).html('Nombre:'))
-        .append($(CreateElement('input')).attr('type', 'text').addClass('form-control'))
-      )
+          })
+        ))
+        .append($(CreateElement('div')).addClass('col')
+          .append($(CreateElement('label')).html('Nombre:'))
+          .append($(CreateElement('input')).attr('type', 'text').addClass('form-control'))
+        )
     );
 
   //Size row
@@ -56,17 +60,33 @@ function AddWindow(workArea) {
 
   //Glass selection
   $(form).append($(GenerateRow())
-    .append($(CreateElement('div')).addClass('col')
-
+    .append($(CreateElement('div'))
+      .addClass('col')
+      .append($(CreateElement('label'))
+        .html('Vidrio externo:'))
+      .append($(CreateElement('select'))
+        .addClass('form-control'))
+      .append($(CreateElement('label'))
+        .html('Camara uno:'))
+      .append($(CreateElement('select'))
+        .addClass('form-control'))
+      .append($(CreateElement('label'))
+        .html('Vidrio medio:'))
+      .append($(CreateElement('select'))
+        .addClass('form-control'))
+      .append($(CreateElement('label'))
+        .html('Camara dos:'))
+      .append($(CreateElement('select'))
+        .addClass('form-control'))
+      .append($(CreateElement('label'))
+        .html('Vidrio interno:'))
+      .append($(CreateElement('select'))
+        .addClass('form-control'))
     )
   )
 
 
   $(workArea).append(form);
-
-  function SelectGlass(lineup) {
-    
-  }
 
 }
 

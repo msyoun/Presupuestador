@@ -71,7 +71,13 @@ const optionHerraje = {
 }
 
 const optionVidrio = {
+  'Sin vidrio': ['Sin vidrio'],
   'Común': ['4mm','5mm','6mm','8mm','10mm'],
   'Laminado': ['3+3','4+4','5+5'],
+  'Especiales': ['4mm FAN','4mm ESM','6mm ESM','3+3 ESM','4mm STOP', '6mm STOP', '4mm COL','5mm COL','6mm COL']
+}
 
+const optionCamara = {
+  'Sin cámara': ['Sin cámara'],
+  'Cámara': ['6mm','9mm','12mm','15mm','19.5mm','23.5mm']
 }
